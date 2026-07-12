@@ -78,8 +78,6 @@ drop table if exists netflix;
 
 ## 1. Count the Number of Movies vs TV Shows
 
-### Business Requirement
-
 Determine the distribution of Movies and TV Shows available on Netflix.
 
 ```sql
@@ -93,8 +91,6 @@ GROUP BY Type;
 ---
 
 ## 2. Find the Most Common Rating for Movies and TV Shows
-
-### Business Requirement
 
 Identify the most frequently occurring content rating for each content type.
 
@@ -119,8 +115,6 @@ WHERE
 
 ## 3. List Movies Released in 2020
 
-### Business Requirement
-
 Retrieve all movies released during the year 2020.
 
 ```sql
@@ -136,7 +130,6 @@ WHERE
 
 ## 4. Top 5 Countries by Content Count
 
-### Business Requirement
 
 Identify the five countries contributing the highest number of titles.
 
@@ -170,8 +163,6 @@ WHERE TYPE = 'Movie'
 
 ## 6. Find Content Added During the Last Five Years
 
-### Business Requirement
-
 Identify recently added content available on Netflix.
 
 ```sql
@@ -186,8 +177,6 @@ WHERE
 
 ## 7. Find Content Directed by Rajiv Chilaka
 
-### Business Requirement
-
 Retrieve every Movie and TV Show directed by Rajiv Chilaka.
 
 ```sql
@@ -199,8 +188,6 @@ where director ILIKE '%Rajiv Chilaka%'
 ---
 
 ## 8. Find TV Shows with More Than Five Seasons
-
-### Business Requirement
 
 Identify long-running TV Shows available on Netflix.
 
@@ -217,8 +204,6 @@ WHERE
 
 ## 9. Count Content by Genre
 
-### Business Requirement
-
 Calculate the total number of titles available in each genre.
 
 ```sql
@@ -233,8 +218,6 @@ GROUP BY 1
 ---
 
 ## 10. Analyze Netflix Content Released by India
-
-### Business Requirement
 
 Determine the years with the highest percentage of Netflix content released by India.
 
@@ -255,8 +238,6 @@ GROUP BY 1
 
 ## 11. Find Documentary Movies
 
-### Business Requirement
-
 Retrieve all documentary movies available in the dataset.
 
 ```sql
@@ -270,8 +251,6 @@ WHERE
 
 ## 12. Identify Content Without Director Information
 
-### Business Requirement
-
 Detect records where director information is unavailable.
 
 ```sql
@@ -283,8 +262,6 @@ WHERE director IS NULL;
 ---
 
 ## 13. Find Salman Khan Movies Released During the Last 10 Years
-
-### Business Requirement
 
 Retrieve Netflix titles featuring Salman Khan released within the last decade.
 
@@ -300,8 +277,6 @@ where casts ILIKE '%Salman Khan%'
 ---
 
 ## 14. Top 10 Actors Appearing in Indian Content
-
-### Business Requirement
 
 Identify actors with the highest number of appearances in Indian-produced Netflix titles.
 
@@ -321,8 +296,6 @@ LIMIT 10;
 ---
 
 ## 15. Categorize Content Based on Keywords
-
-### Business Requirement
 
 Classify content as **Good Content** or **Bad Content** depending on whether the description contains the keywords **Kill** or **Violence**.
 
@@ -415,6 +388,3 @@ Netflix-SQL-Analysis
 # Conclusion
 
 This project demonstrates the application of SQL to solve practical business problems using a real-world dataset. It highlights proficiency in querying, transforming, and analyzing structured data while generating actionable business insights.
-
-# Project
-Rohit Kumar
