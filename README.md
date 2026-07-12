@@ -2,210 +2,313 @@
 
 ![Netflix Logo](https://github.com/rohitkumartomar2000-eng/NETFLIX_SQL_PROJECT/blob/main/BrandAssets_Logos_01-Wordmark.jpg)
 
+# Netflix Content Analysis using SQL
 
-# Netflix Content Analysis Using SQL
+## Project Summary
 
-## Project Overview
+This project presents a comprehensive SQL-based analysis of the Netflix Movies and TV Shows dataset. The objective is to explore Netflix's content library by solving real-world business problems using PostgreSQL.
 
-This project performs an end-to-end SQL analysis of the Netflix Movies and TV Shows dataset to generate actionable business insights. The analysis covers content distribution, audience ratings, geographical trends, release patterns, genre analysis, and content classification.
+The analysis covers content distribution, audience ratings, geographical insights, release trends, genre analysis, actor and director exploration, and keyword-based content classification.
 
-The project demonstrates the practical application of SQL for data exploration and business intelligence by solving real-world analytical questions commonly encountered in Data Analyst and Business Intelligence roles.
-
----
-
-## Business Objective
-
-The objective of this project is to analyze Netflix's content library and answer business-driven questions such as:
-
-- What is the distribution of Movies and TV Shows?
-- Which content ratings appear most frequently?
-- Which countries contribute the most content?
-- How has Netflix content evolved over time?
-- Which actors and directors appear most frequently?
-- What genres dominate the platform?
-- Can content be classified using textual descriptions?
+This project demonstrates practical SQL techniques used by Data Analysts and Business Intelligence professionals for data exploration and reporting.
 
 ---
 
-## Dataset
+## Project Objectives
 
-**Source:** Kaggle – Netflix Movies and TV Shows Dataset
+The primary objectives of this project are to:
 
-The dataset contains information about Netflix titles, including:
-
-- Show ID
-- Content Type
-- Title
-- Director
-- Cast
-- Country
-- Date Added
-- Release Year
-- Rating
-- Duration
-- Genre
-- Description
+- Analyze the distribution of Movies and TV Shows.
+- Identify the most common content ratings.
+- Examine country-wise content production.
+- Analyze yearly content release trends.
+- Identify the longest movies and longest-running TV shows.
+- Explore content by directors, actors, and genres.
+- Detect missing information within the dataset.
+- Perform keyword-based content classification using SQL.
 
 ---
 
-## Database Schema
+## Dataset Information
+
+**Dataset:** Netflix Movies and TV Shows
+
+The dataset contains metadata for Netflix titles, including:
+
+| Column | Description |
+|---------|-------------|
+| show_id | Unique identifier |
+| type | Movie or TV Show |
+| title | Title of the content |
+| director | Director name |
+| casts | Cast members |
+| country | Country of production |
+| date_added | Date added to Netflix |
+| release_year | Original release year |
+| rating | Audience rating |
+| duration | Movie duration / TV seasons |
+| listed_in | Genre |
+| description | Content description |
+
+---
+
+# Database Schema
 
 ```sql
-CREATE TABLE netflix
-(
-    show_id      VARCHAR(8),
-    type         VARCHAR(10),
-    title        VARCHAR(150),
-    director     VARCHAR(208),
-    casts        VARCHAR(1000),
-    country      VARCHAR(150),
-    date_added   VARCHAR(50),
-    release_year INT,
-    rating       VARCHAR(10),
-    duration     VARCHAR(15),
-    listed_in    VARCHAR(100),
-    description  VARCHAR(250)
-);
+-- Your schema exactly as written
 ```
 
 ---
 
-# Business Questions Solved
+# Business Problems & Solutions
 
-The project addresses the following analytical questions:
+## 1. Count the Number of Movies vs TV Shows
 
-### 1. Content Distribution
+### Business Requirement
 
-- Count the total number of Movies and TV Shows available on Netflix.
+Determine the distribution of Movies and TV Shows available on Netflix.
 
-### 2. Rating Analysis
-
-- Determine the most common content rating for both Movies and TV Shows.
-
-### 3. Release Year Analysis
-
-- Retrieve all movies released in a specified year.
-
-### 4. Country Analysis
-
-- Identify the top five countries contributing the highest number of titles.
-
-### 5. Duration Analysis
-
-- Find the longest movie available on Netflix.
-
-### 6. Recent Content Analysis
-
-- Retrieve content added to Netflix during the last five years.
-
-### 7. Director Analysis
-
-- List all Movies and TV Shows directed by **Rajiv Chilaka**.
-
-### 8. TV Show Analysis
-
-- Identify TV Shows with more than five seasons.
-
-### 9. Genre Analysis
-
-- Count the number of titles available within each genre.
-
-### 10. India Content Trend Analysis
-
-- Calculate yearly content releases in India and identify the top five years with the highest contribution.
-
-### 11. Documentary Analysis
-
-- Retrieve all documentary movies.
-
-### 12. Data Quality Analysis
-
-- Identify titles with missing director information.
-
-### 13. Actor Analysis
-
-- Count Salman Khan's Netflix appearances during the last ten years.
-
-### 14. Top Actors Analysis
-
-- Identify the ten actors appearing most frequently in Indian Netflix content.
-
-### 15. Content Classification
-
-- Categorize titles as **Good** or **Bad** based on the presence of keywords such as **Kill** and **Violence** in the description.
+```sql
+-- Your Query
+```
 
 ---
 
-# SQL Skills Demonstrated
+## 2. Find the Most Common Rating for Movies and TV Shows
 
-This project utilizes a wide range of SQL concepts, including:
+### Business Requirement
 
-- Data Filtering
+Identify the most frequently occurring content rating for each content type.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 3. List Movies Released in 2020
+
+### Business Requirement
+
+Retrieve all movies released during the year 2020.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 4. Top 5 Countries by Content Count
+
+### Business Requirement
+
+Identify the five countries contributing the highest number of titles.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 5. Identify the Longest Movie
+
+### Business Requirement
+
+Retrieve the movie with the maximum duration.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 6. Find Content Added During the Last Five Years
+
+### Business Requirement
+
+Identify recently added content available on Netflix.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 7. Find Content Directed by Rajiv Chilaka
+
+### Business Requirement
+
+Retrieve every Movie and TV Show directed by Rajiv Chilaka.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 8. Find TV Shows with More Than Five Seasons
+
+### Business Requirement
+
+Identify long-running TV Shows available on Netflix.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 9. Count Content by Genre
+
+### Business Requirement
+
+Calculate the total number of titles available in each genre.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 10. Analyze Netflix Content Released by India
+
+### Business Requirement
+
+Determine the years with the highest percentage of Netflix content released by India.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 11. Find Documentary Movies
+
+### Business Requirement
+
+Retrieve all documentary movies available in the dataset.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 12. Identify Content Without Director Information
+
+### Business Requirement
+
+Detect records where director information is unavailable.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 13. Find Salman Khan Movies Released During the Last 10 Years
+
+### Business Requirement
+
+Retrieve Netflix titles featuring Salman Khan released within the last decade.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 14. Top 10 Actors Appearing in Indian Content
+
+### Business Requirement
+
+Identify actors with the highest number of appearances in Indian-produced Netflix titles.
+
+```sql
+-- Your Query
+```
+
+---
+
+## 15. Categorize Content Based on Keywords
+
+### Business Requirement
+
+Classify content as **Good Content** or **Bad Content** depending on whether the description contains the keywords **Kill** or **Violence**.
+
+```sql
+-- Your Query
+```
+
+---
+
+# SQL Techniques Demonstrated
+
 - Aggregate Functions
 - GROUP BY
 - ORDER BY
-- CASE Statements
 - Common Table Expressions (CTEs)
 - Window Functions
-- Ranking Functions
+- RANK()
+- CASE Expressions
+- Subqueries
 - Date Functions
 - String Functions
+- Pattern Matching
+- Data Transformation
 - Data Cleaning
-- Text Processing
-- Multi-level Aggregation
 
 ---
 
-# Key Insights
+# Key Business Insights
 
-The analysis produced several meaningful business insights, including:
-
-- Movies constitute the majority of Netflix's content library.
-- Certain maturity ratings dominate specific content types.
-- The United States and India contribute a significant share of Netflix content.
-- Netflix has consistently expanded its content library over recent years.
-- Drama and International Movies are among the most common genres.
-- Several records contain incomplete metadata, particularly missing director information.
-- Keyword-based classification provides a simple approach for identifying potentially sensitive content.
+- Movies account for the majority of Netflix's catalog.
+- Content ratings vary significantly between Movies and TV Shows.
+- The United States and India contribute a substantial portion of Netflix content.
+- Drama and International Movies represent the most common genres.
+- Several records contain missing director information, highlighting data quality issues.
+- Keyword-based classification enables basic content moderation analysis.
+- Actor analysis identifies the most frequently appearing performers in Indian productions.
 
 ---
 
-# Technologies Used
+# Tools & Technologies
 
-- SQL
 - PostgreSQL
-- pgAdmin
+- SQL
+- pgAdmin 4
 - Kaggle Dataset
 
 ---
 
-# Project Structure
+# Repository Structure
 
 ```
-Netflix-SQL-Analysis/
+Netflix-SQL-Analysis
 │
-├── Netflix_Dataset.csv
-├── Netflix_SQL_Project.sql
+├── netflix.csv
+├── netflix_project.sql
 └── README.md
 ```
 
 ---
 
-# Learning Outcomes
+# Skills Demonstrated
 
-Through this project, I strengthened my understanding of:
-
-- Writing efficient SQL queries
-- Solving real-world business problems using SQL
-- Data exploration and exploratory data analysis (EDA)
-- Window Functions and Common Table Expressions (CTEs)
-- Working with textual and date-based datasets
-- Converting raw data into meaningful business insights
+- SQL Programming
+- Data Exploration
+- Business Analysis
+- Exploratory Data Analysis (EDA)
+- Query Optimization
+- Data Cleaning
+- Window Functions
+- Common Table Expressions (CTEs)
+- Reporting & Analytics
 
 ---
 
 # Conclusion
 
-This project demonstrates how SQL can be leveraged to perform comprehensive exploratory data analysis and generate business insights from real-world datasets. By applying advanced SQL techniques such as Window Functions, Common Table Expressions (CTEs), string manipulation, and data transformation, the project answers practical business questions and highlights SQL's effectiveness as a data analysis tool.
+This project demonstrates the application of SQL to solve practical business problems using a real-world dataset. It highlights proficiency in querying, transforming, and analyzing structured data while generating actionable business insights.
 
-This project reflects the analytical skills expected from Data Analysts, Business Analysts, MIS Executives, and SQL Developers, making it a valuable addition to a professional data analytics portfolio.
+The techniques implemented in this project closely align with tasks performed by **Data Analysts, Business Analysts, MIS Executives, Reporting Analysts, and SQL Developers**, making it a strong addition to a professional data analytics portfolio.
