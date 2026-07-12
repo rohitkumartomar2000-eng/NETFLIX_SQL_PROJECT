@@ -31,7 +31,7 @@ The primary objectives of this project are to:
 
 ## Dataset Information
 
-**Dataset:** Netflix Movies and TV Shows
+**Dataset Source:** ([gle.com/datasets/shivamb/netflix-shows?resource=download](https://www.kaggle.com/datasets/shivamb/netflix-shows?resource=download))
 
 The dataset contains metadata for Netflix titles, including:
 
