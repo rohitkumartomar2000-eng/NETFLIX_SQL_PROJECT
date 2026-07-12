@@ -1,4 +1,4 @@
-# Netflix Content Analysis Using PostgreSQL | SQL Business Case Study
+# Netflix Content Analysis Using PostgreSQL
 
 ![Netflix Logo](https://github.com/rohitkumartomar2000-eng/NETFLIX_SQL_PROJECT/blob/main/BrandAssets_Logos_01-Wordmark.jpg)
 
