@@ -1,4 +1,4 @@
-# Netflix - Movies - Tv Shows - Data Analysis - SQL
+# Netflix Content Analysis Using PostgreSQL | SQL Business Case Study
 
 ![Netflix Logo](https://github.com/rohitkumartomar2000-eng/NETFLIX_SQL_PROJECT/blob/main/BrandAssets_Logos_01-Wordmark.jpg)
 
@@ -141,7 +141,13 @@ WHERE
 Identify the five countries contributing the highest number of titles.
 
 ```sql
--- Your Query
+SELECT 
+	UNNEST(STRING_TO_ARRAY(country,',')) as New_country,
+	COUNT(show_id) as total_content
+FROM Netflix
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 5;
 ```
 
 ---
@@ -153,7 +159,11 @@ Identify the five countries contributing the highest number of titles.
 Retrieve the movie with the maximum duration.
 
 ```sql
--- Your Query
+SELECT * FROM NETFLIX
+WHERE TYPE = 'Movie' 
+	  AND 
+	  Duration = (select max(duration) from netflix);
+
 ```
 
 ---
@@ -165,7 +175,11 @@ Retrieve the movie with the maximum duration.
 Identify recently added content available on Netflix.
 
 ```sql
--- Your Query
+
+SELECT * FROM NETFLIX
+WHERE
+	TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 YEARS'
+
 ```
 
 ---
@@ -177,7 +191,9 @@ Identify recently added content available on Netflix.
 Retrieve every Movie and TV Show directed by Rajiv Chilaka.
 
 ```sql
--- Your Query
+SELECT * FROM NETFLIX
+where director ILIKE '%Rajiv Chilaka%'
+
 ```
 
 ---
@@ -189,7 +205,12 @@ Retrieve every Movie and TV Show directed by Rajiv Chilaka.
 Identify long-running TV Shows available on Netflix.
 
 ```sql
--- Your Query
+
+SELECT * FROM netflix
+WHERE
+	TYPE = 'TV Show'
+	AND
+	SPLIT_PART(Duration,' ',1)::numeric > 5;
 ```
 
 ---
@@ -201,7 +222,12 @@ Identify long-running TV Shows available on Netflix.
 Calculate the total number of titles available in each genre.
 
 ```sql
--- Your Query
+
+SELECT listed_in,
+UNNEST(STRING_TO_ARRAY(listed_in, ',')) as genre,
+count(show_id)	
+FROM netflix
+GROUP BY 1
 ```
 
 ---
@@ -213,7 +239,16 @@ Calculate the total number of titles available in each genre.
 Determine the years with the highest percentage of Netflix content released by India.
 
 ```sql
--- Your Query
+
+SELECT
+	EXTRACT(YEAR FROM TO_DATE(date_added, 'Month DD,YYYY')) as Year,
+	COUNT(*) as Yearly_content,
+	ROUND(
+	COUNT(*)::numeric/ (SELECT COUNT(*) FROM netflix Where Country = 'India')::numeric * 100 ,2)
+	as avg_count_per_year
+FROM Netflix
+WHERE Country = 'India'
+GROUP BY 1
 ```
 
 ---
@@ -225,7 +260,10 @@ Determine the years with the highest percentage of Netflix content released by I
 Retrieve all documentary movies available in the dataset.
 
 ```sql
--- Your Query
+
+SELECT * FROM Netflix
+WHERE
+	listed_in Ilike  '%documentaries%';
 ```
 
 ---
@@ -237,7 +275,9 @@ Retrieve all documentary movies available in the dataset.
 Detect records where director information is unavailable.
 
 ```sql
--- Your Query
+
+SELECT * FROM Netflix
+WHERE director IS NULL;
 ```
 
 ---
@@ -249,7 +289,12 @@ Detect records where director information is unavailable.
 Retrieve Netflix titles featuring Salman Khan released within the last decade.
 
 ```sql
--- Your Query
+
+SELECT * FROM Netflix
+where casts ILIKE '%Salman Khan%' 
+	and 
+	release_year > EXTRACT(YEAR FROM CURRENT_DATE) - 10 ;
+
 ```
 
 ---
@@ -261,7 +306,16 @@ Retrieve Netflix titles featuring Salman Khan released within the last decade.
 Identify actors with the highest number of appearances in Indian-produced Netflix titles.
 
 ```sql
--- Your Query
+
+SELECT 
+UNNEST(STRING_TO_ARRAY(Casts, ',')) as actors_name,
+count(*) as total_content
+FROM Netflix
+WHERE Country ILIKE '%India'
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
 ```
 
 ---
@@ -273,7 +327,22 @@ Identify actors with the highest number of appearances in Indian-produced Netfli
 Classify content as **Good Content** or **Bad Content** depending on whether the description contains the keywords **Kill** or **Violence**.
 
 ```sql
--- Your Query
+
+with new_table as(
+SELECT
+*,
+CASE
+	WHEN description ILIKE '%Kill%' 
+	OR
+	 description ILIKE '%violence%' then 'Bad content' 
+	else 'Good content'
+END AS category
+FROM Netflix)
+SELECT 
+	Category,
+	count(*) as total_content
+FROM New_table 
+GROUP BY 1;
 ```
 
 ---
@@ -347,4 +416,5 @@ Netflix-SQL-Analysis
 
 This project demonstrates the application of SQL to solve practical business problems using a real-world dataset. It highlights proficiency in querying, transforming, and analyzing structured data while generating actionable business insights.
 
-The techniques implemented in this project closely align with tasks performed by **Data Analysts, Business Analysts, MIS Executives, Reporting Analysts, and SQL Developers**, making it a strong addition to a professional data analytics portfolio.
+# Project
+Rohit Kumar
