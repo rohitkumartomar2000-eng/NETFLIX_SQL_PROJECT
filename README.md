@@ -55,7 +55,21 @@ The dataset contains metadata for Netflix titles, including:
 # Database Schema
 
 ```sql
--- Your schema exactly as written
+drop table if exists netflix;
+	CREATE TABLE netflix
+	(show_id Varchar(8),
+	type Varchar(10),
+	title Varchar(150),
+	director varchar(208),
+	casts varchar(1000),
+	country varchar(150),
+	date_added varchar(50),
+	release_year int,
+	rating varchar(10),
+	duration varchar(15),
+	listed_in varchar(100),
+	description varchar(250)
+)
 ```
 
 ---
@@ -69,7 +83,11 @@ The dataset contains metadata for Netflix titles, including:
 Determine the distribution of Movies and TV Shows available on Netflix.
 
 ```sql
--- Your Query
+SELECT 
+	Type,COUNT(*) as Total_content
+FROM netflix
+GROUP BY Type;
+
 ```
 
 ---
