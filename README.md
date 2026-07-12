@@ -99,7 +99,20 @@ GROUP BY Type;
 Identify the most frequently occurring content rating for each content type.
 
 ```sql
--- Your Query
+SELECT 
+	Type,
+	rating
+FROM
+(SELECT 
+		type,
+		rating,
+		count(*),
+		RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC ) as ranking
+	FROM netflix
+	GROUP BY 1, 2
+) as t1
+WHERE
+	Ranking = 1;
 ```
 
 ---
@@ -111,7 +124,12 @@ Identify the most frequently occurring content rating for each content type.
 Retrieve all movies released during the year 2020.
 
 ```sql
--- Your Query
+
+SELECT * FROM netflix
+WHERE 
+	Type = 'Movie'
+	AND
+	release_year = 2020;
 ```
 
 ---
